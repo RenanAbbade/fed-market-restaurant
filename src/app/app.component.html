@@ -11,3 +11,10 @@
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
+
+
+<router-outlet></router-outlet>
+<!-- Com o router-outlet digo ao angular onde quero renderizar meu modulo/componente
+Como essa renderização ocorre? No arquivo app.routes.ts, defini que quando for path '', será redirecionado para o módulo cardapio, que por sua vez, no arquivo cardapio-routing
+.module.ts redireciona para ProdutosComponent, o que faz aparecer o conteudo de produtos
+-->

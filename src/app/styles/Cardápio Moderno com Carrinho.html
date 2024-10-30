@@ -1,0 +1,367 @@
+
+<!-- saved from url=(0055)file:///C:/Users/renan/Downloads/p72QpIH0eyy9mUNn7.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="https://modern-menu-cart.com/">--><base href=".">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardápio Moderno com Carrinho</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --background-color: #f7f7f7;
+    --text-color: #333;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .menu-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .menu-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #ddd;
+  }
+
+  .menu-item:last-child {
+    border-bottom: none;
+  }
+
+  .item-info {
+    flex-grow: 1;
+  }
+
+  .item-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .item-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.25rem;
+  }
+
+  .item-price {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 1rem;
+  }
+
+  .add-to-cart {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .add-to-cart:hover {
+    background-color: #45b7aa;
+  }
+
+  #cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    color: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  #cart-icon:hover {
+    transform: scale(1.1);
+  }
+
+  #cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  #cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+
+  #cart-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+  }
+
+  #cart-items {
+    margin-bottom: 1rem;
+  }
+
+  #cart-total {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  #payment-options {
+    margin-bottom: 1rem;
+  }
+
+  #complete-purchase {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #complete-purchase:hover {
+    background-color: #ff5252;
+  }
+
+  @media (max-width: 768px) {
+    .menu-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .item-price {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Sabores Modernos</h1>
+  </header>
+
+  <div id="cart-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="20" cy="21" r="1"></circle>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+    </svg>
+    <span id="cart-count">2</span>
+  </div>
+
+  <div class="container">
+    <section class="menu-section">
+      <h2>Entradas</h2>
+      <div class="menu-item">
+        <div class="item-info">
+          <div class="item-name">Bruschetta Caprese</div>
+          <div class="item-description">Tomate, mozzarella e manjericão em pão italiano tostado</div>
+        </div>
+        <div class="item-price">R$ 18,00</div>
+        <button class="add-to-cart" data-name="Bruschetta Caprese" data-price="18.00">Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="item-info">
+          <div class="item-name">Carpaccio de Beterraba</div>
+          <div class="item-description">Finas fatias de beterraba com rúcula e queijo de cabra</div>
+        </div>
+        <div class="item-price">R$ 22,00</div>
+        <button class="add-to-cart" data-name="Carpaccio de Beterraba" data-price="22.00">Adicionar</button>
+      </div>
+    </section>
+
+    <section class="menu-section">
+      <h2>Pratos Principais</h2>
+      <div class="menu-item">
+        <div class="item-info">
+          <div class="item-name">Risotto de Cogumelos Selvagens</div>
+          <div class="item-description">Arroz arbóreo cremoso com mix de cogumelos e parmesão</div>
+        </div>
+        <div class="item-price">R$ 42,00</div>
+        <button class="add-to-cart" data-name="Risotto de Cogumelos Selvagens" data-price="42.00">Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="item-info">
+          <div class="item-name">Salmão ao Molho de Maracujá</div>
+          <div class="item-description">Filé de salmão grelhado com molho de maracujá e aspargos</div>
+        </div>
+        <div class="item-price">R$ 56,00</div>
+        <button class="add-to-cart" data-name="Salmão ao Molho de Maracujá" data-price="56.00">Adicionar</button>
+      </div>
+    </section>
+
+    <section class="menu-section">
+      <h2>Sobremesas</h2>
+      <div class="menu-item">
+        <div class="item-info">
+          <div class="item-name">Tiramisù Desconstruído</div>
+          <div class="item-description">Creme de mascarpone, café, cacau e biscoitos champagne</div>
+        </div>
+        <div class="item-price">R$ 24,00</div>
+        <button class="add-to-cart" data-name="Tiramisù Desconstruído" data-price="24.00">Adicionar</button>
+      </div>
+      <div class="menu-item">
+        <div class="item-info">
+          <div class="item-name">Pavlova de Frutas Vermelhas</div>
+          <div class="item-description">Merengue crocante com creme e mix de frutas vermelhas frescas</div>
+        </div>
+        <div class="item-price">R$ 28,00</div>
+        <button class="add-to-cart" data-name="Pavlova de Frutas Vermelhas" data-price="28.00">Adicionar</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="cart-modal">
+    <div id="cart-content">
+      <h2>Seu Carrinho</h2>
+      <div id="cart-items"></div>
+      <div id="cart-total"></div>
+      <div id="payment-options">
+        <h3>Opções de Pagamento</h3>
+        <label>
+          <input type="radio" name="payment" value="credit" checked=""> Cartão de Crédito
+        </label>
+        <label>
+          <input type="radio" name="payment" value="debit"> Cartão de Débito
+        </label>
+        <label>
+          <input type="radio" name="payment" value="pix"> PIX
+        </label>
+      </div>
+      <button id="complete-purchase">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <script>
+    const cart = [];
+    const cartIcon = document.getElementById('cart-icon');
+    const cartCount = document.getElementById('cart-count');
+    const cartModal = document.getElementById('cart-modal');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const completePurchase = document.getElementById('complete-purchase');
+
+    function updateCartCount() {
+      const count = cart.reduce((total, item) => total + item.quantity, 0);
+      cartCount.textContent = count;
+    }
+
+    function updateCartModal() {
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.textContent = `${item.name} x${item.quantity} - R$ ${(item.price * item.quantity).toFixed(2)}`;
+        cartItems.appendChild(itemElement);
+        total += item.price * item.quantity;
+      });
+
+      cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const name = button.getAttribute('data-name');
+        const price = parseFloat(button.getAttribute('data-price'));
+
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({ name, price, quantity: 1 });
+        }
+
+        updateCartCount();
+      });
+    });
+
+    cartIcon.addEventListener('click', () => {
+      updateCartModal();
+      cartModal.style.display = 'flex';
+    });
+
+    cartModal.addEventListener('click', (event) => {
+      if (event.target === cartModal) {
+        cartModal.style.display = 'none';
+      }
+    });
+
+    completePurchase.addEventListener('click', () => {
+      const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+      alert(`Compra finalizada! Método de pagamento: ${selectedPayment}`);
+      cart.length = 0;
+      updateCartCount();
+      cartModal.style.display = 'none';
+    });
+  </script>
+
+</body></html>

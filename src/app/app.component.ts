@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+
+import { HeaderComponent } from './shared/header/header.component';
 
 @Component({
   selector: 'app-root',
+  styles: [],
+  template: `
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    `,
   standalone: true,
-  imports: [RouterOutlet,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [RouterOutlet, HeaderComponent]
 })
 export class AppComponent {
-  title = 'fed-market-restaurant';
+  title = 'angular-shop';
 }

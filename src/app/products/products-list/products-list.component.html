@@ -25,7 +25,7 @@
           @if (product.discounted === 'discounted') {
 <span
             class="strikethrough mat-text-muted text-sm"
-           
+
             >$ {{ product.discount }}</span
           >
 }
@@ -43,3 +43,25 @@
   </mat-card>
 }
 </div>
+
+
+<!--
+### Explicação do `@for (product of products$ | async; track product)`
+
+1. **`@for (product of products$ | async; track product) {`**
+   - Esse é um loop que itera sobre uma variável `products$`, que é uma stream observável.
+   - **`products$ | async`**: o operador `| async` é um *pipe* do Angular que automaticamente inscreve o componente na stream `products$` e o atualiza com os novos valores emitidos. Ele transforma o valor emitido pelo `Observable` em algo que pode ser usado diretamente no template.
+   - **`product of products$ | async`**: para cada item emitido por `products$`, a variável `product` representa o item atual.
+   - **`track product`**: assim como explicado anteriormente, a cláusula `track` ajuda o Angular a identificar de forma eficiente cada item na lista. Isso pode melhorar a performance ao atualizar elementos de listas grandes, pois evita recriação desnecessária de itens.
+
+### Por que a variável `products$` tem `$` no final?
+
+- **Convenção de nomenclatura**: em aplicações Angular, é comum adicionar um `$` no final de variáveis que são *Observables* ou *streams* de dados. Isso ajuda a desenvolvedores a identificarem rapidamente que a variável é um `Observable` e que pode ser necessário usar o `| async` ou se inscrever manualmente para obter seus valores.
+- **Clareza no código**: essa convenção torna o código mais legível, deixando claro que a variável não contém um valor direto, mas sim um fluxo de valores que podem ser emitidos ao longo do tempo.
+
+### Resumo
+- **`products$`** é uma stream de dados assíncrona (um `Observable`).
+- **`| async`** facilita a inscrição e a obtenção de valores de um `Observable` diretamente no template.
+- O `$` no final do nome da variável é uma convenção que indica que ela é um `Observable`, ajudando na legibilidade e entendimento do código.
+
+-->

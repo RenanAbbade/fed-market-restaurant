@@ -14,7 +14,8 @@ export class ProductsService {
   private readonly isLocal = true;
   private http = inject(HttpClient);
 
-  load(): Observable<Product[]> {
+
+load(): Observable<Product[]> {
     if (this.isLocal) {
       for (let num = 1; num <= 10; num++) {
         this.addProducts(num);
